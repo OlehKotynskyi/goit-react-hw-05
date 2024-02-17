@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getReviews } from '../../api';
-
+import css from './MovieReviews.module.css';
 export const MovieReviews = () => {
    const { movieId } = useParams();
    const [detailReviews, setDetailReviews] = useState([]);
@@ -25,7 +25,7 @@ export const MovieReviews = () => {
    }, [movieId]);
 
    return (
-      <div>
+      <div className={css.wraper}>
          {loading && <p>Loading reviews...</p>}
          {error && <p>OOOOPS! ERROR!</p>}
          {!loading && (

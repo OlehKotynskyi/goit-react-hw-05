@@ -1,0 +1,49 @@
+.wrapPopular {
+   margin: 0 auto;
+   padding-right: 15px;
+   padding-left: 15px;
+}
+
+.popularList {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   flex-wrap: wrap;
+   gap: 20px;
+}
+
+.popularItem {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   max-width: 200px;
+   width: 100%;
+}
+
+.popularItem h2 {
+   display: flex;
+   font-size: 18px;
+   margin-bottom: 10px;
+
+}
+
+
+.linkImg {
+   display: block;
+   width: 100%;
+   border-radius: 10px;
+   height: 100%;
+   overflow: hidden;
+   cursor: pointer;
+   transition: all 0.3s ease;
+}
+
+.linkImg img {
+   width: 100%;
+   height: auto;
+   object-fit: cover;
+}
+
+.linkImg:hover {
+   transform: scale(1.03);
+}

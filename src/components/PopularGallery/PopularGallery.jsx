@@ -1,16 +1,21 @@
-import { Link } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
+import css from './PopularGallery.module.css';
+
 export const PopularGallery = ({ popularBooks }) => {
+   const location = useLocation();
    return (
-      <ul>
-         {popularBooks.map(item => (
-            <li key={item.id}>
-               <h2>{item.title}</h2>
-               <Link to={`/movies/${item.id}`}>
-                  <img src={item.poster_url} alt={item.title} />
-               </Link>
-               <p>{item.release_date}</p>
-            </li>
-         ))}
-      </ul>
+      <div className={css.wrapPopular}>
+         <ul className={css.popularList}>
+            {popularBooks.map(item => (
+               <li key={item.id} className={css.popularItem}>
+                  <h2>{item.title}</h2>
+                  <NavLink to={`/movies/${item.id}`} state={location} className={css.linkImg}>
+                     <img src={item.poster_url} alt={item.title} />
+                  </NavLink>
+                  <p>{item.release_date}</p>
+               </li>
+            ))}
+         </ul>
+      </div>
    );
 };

@@ -2,6 +2,7 @@ import toast from 'react-hot-toast';
 import { useState } from 'react';
 import { getSearch } from '../api';
 import { DetalisMovies } from '../components/DetalisMovies/DetalisMovies';
+import { SearchForm } from '../components/SearchForm/SearchForm';
 
 export default function MoviesPage() {
    const [searchResults, setSearchResults] = useState([]);
@@ -24,33 +25,12 @@ export default function MoviesPage() {
       }
    };
 
-   const handleSubmit = e => {
-      e.preventDefault();
-
-      const query = e.target.elements.query.value.trim();
-
-      if (!query) {
-         toast.error('Enter your search query 👈');
-         return;
-      }
-
-      handleSearch(query);
-      e.target.reset();
-   };
-
    return (
-      <form onSubmit={handleSubmit}>
-         <input type="text" name="query" placeholder="Search images and photos" />
-         <button type="submit">Search</button>
-
+      <div>
+         <SearchForm handleSubmit={handleSearch} />
          {loading && <p>Loading...</p>}
          {error && <p>OOOOPS! ERROR!</p>}
-
-         {!loading && searchResults.length > 0 && (
-            <>
-               <DetalisMovies search={searchResults} />
-            </>
-         )}
-      </form>
+         {!loading && searchResults.length > 0 && <DetalisMovies search={searchResults} />}
+      </div>
    );
 }

@@ -1,0 +1,29 @@
+.form {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   gap: 20px;
+   margin-bottom: 20px;
+}
+
+
+.input {
+   width: 250px;
+   padding: 10px;
+   border-radius: 5px;
+   border: 1px #000 solid;
+}
+
+.form button {
+   height: 40px;
+   width: 70px;
+   border-radius: 5px;
+   border: 1px #000 solid;
+   background-color: #fff;
+   transition: all 0.3s ease;
+}
+
+.form button:hover {
+   color: #fff;
+   background-color: #6e6d6d;
+}

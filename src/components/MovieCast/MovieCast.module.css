@@ -1,0 +1,27 @@
+.wrap {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.container {
+   padding-left: 15px;
+   padding-right: 15px;
+   margin: 0 auto;
+}
+
+.list {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+   align-items: center;
+   gap: 20px;
+}
+
+.item {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   width: 200px;
+}

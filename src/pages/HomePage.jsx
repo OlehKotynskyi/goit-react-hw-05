@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { PageTitel } from '../components/PageTitel/PageTitel';
 import { PopularGallery } from '../components/PopularGallery/PopularGallery';
 import { getPopular } from '../api';
 
@@ -17,7 +18,6 @@ export default function HomePage() {
             setLoading(false);
          } catch (error) {
             setError(true);
-            setpopularBooks([]);
          } finally {
             setLoading(false);
          }
@@ -28,6 +28,7 @@ export default function HomePage() {
 
    return (
       <div>
+         <PageTitel>Trending today</PageTitel>
          {loading && <p>Loading...</p>}
          {error && <p>OOOOPS! ERROR!</p>}
          {!loading && popularBooks.length === 0 && <p>No popular books found.</p>}

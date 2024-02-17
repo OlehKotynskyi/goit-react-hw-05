@@ -1,0 +1,39 @@
+.nav {
+   padding-top: 20px;
+   padding-bottom: 20px;
+   padding-left: 15px;
+   padding-right: 15px;
+   background-color: #dad6d6;
+
+}
+
+.nav:not(:last-child) {
+   margin-bottom: 20px;
+}
+
+.list {
+   display: flex;
+   gap: 20px;
+}
+
+.link {
+   color: black;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   width: 120px;
+   padding: 5px;
+   border-radius: 10px;
+   background-color: #fff;
+   transition: all 0.3s ease;
+   text-decoration: none;
+}
+
+.link:hover {
+   color: #fff;
+   background-color: #6e6d6d;
+}
+
+.active {
+   color: rgb(243, 168, 6);
+}

@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 import { getCredits } from '../../api';
 import { useParams } from 'react-router-dom';
+import css from './MovieCast.module.css';
 
 export const MovieCast = () => {
    const { movieId } = useParams();
-
    const [credits, setCredits] = useState([]);
    const [loading, setLoading] = useState(false);
    const [error, setError] = useState(false);
@@ -27,24 +27,23 @@ export const MovieCast = () => {
    }, [movieId]);
 
    return (
-      <div>
+      <div className={css.wrap}>
          {loading && <p>Loading...</p>}
          {error && <p>OOOOPS! ERROR!</p>}
          {!loading && (
-            <div>
+            <div className={css.container}>
                <h2>Movie Cast</h2>
-               <ul>
-                  {credits.map(item => (
-                     <li key={item.cast_id}>
-                        {item.profile_path && (
-                           <>
+               <ul className={css.list}>
+                  {credits.map(
+                     item =>
+                        item.profile_path && (
+                           <li key={item.cast_id} className={css.item}>
                               <h2>{item.name}</h2>
                               <img src={item.poster_url} alt={item.title} width={150} />
                               <p>{item.character}</p>
-                           </>
-                        )}
-                     </li>
-                  ))}
+                           </li>
+                        )
+                  )}
                </ul>
             </div>
          )}
