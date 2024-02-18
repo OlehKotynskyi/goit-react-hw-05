@@ -1,28 +1,36 @@
 import toast from 'react-hot-toast';
+import { useState } from 'react';
 import css from './SearchForm.module.css';
 
-export const SearchForm = ({ handleSubmit }) => {
-   const onSubmit = e => {
+export const SearchForm = ({ onSubmit }) => {
+   const [query, setQuery] = useState('');
+
+   const handleSubmit = async e => {
       e.preventDefault();
-      const query = e.target.elements.query.value.trim();
-      if (!query) {
+      const trimmedQuery = query.trim();
+      if (!trimmedQuery) {
          toast.error('Enter your search query 👈');
          return;
       }
-      handleSubmit(query);
+      onSubmit(trimmedQuery);
+      setQuery('');
+   };
+
+   const onInputChange = e => {
+      setQuery(e.target.value);
    };
 
    return (
-      <form onSubmit={onSubmit}>
-         <div className={css.form}>
-            <input
-               type="text"
-               name="query"
-               placeholder="Search images and photos"
-               className={css.input}
-            />
-            <button type="submit">Search</button>
-         </div>
+      <form onSubmit={handleSubmit} className={css.form}>
+         <input
+            type="text"
+            name="query"
+            placeholder="Search images and photos"
+            className={css.input}
+            value={query}
+            onChange={onInputChange}
+         />
+         <button type="submit">Search</button>
       </form>
    );
 };

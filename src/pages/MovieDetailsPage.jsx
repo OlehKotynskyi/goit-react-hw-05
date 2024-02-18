@@ -40,7 +40,7 @@ export default function MovieDetailsPage() {
          {!loading && detailsFilm && (
             <>
                <div>
-                  <BackLink href={beckLink.current ?? '/payments'}>👈 Back to all payment</BackLink>
+                  <BackLink href={beckLink.current ?? '/movies'}>👈 Back to all movies</BackLink>
                   <DetailsPage detalis={detailsFilm} />
                </div>
 
